@@ -1,3 +1,4 @@
+import {service} from '@loopback/core';
 import {
   Count,
   CountSchema,
@@ -16,15 +17,46 @@ import {
   del,
   requestBody,
   response,
+  HttpErrors,
 } from '@loopback/rest';
-import {Usuario} from '../models';
+import {Credenciales, Usuario} from '../models';
 import {UsuarioRepository} from '../repositories';
+import {AutenticacionService} from '../services';
+const fetch = require('node-fetch');
 
 export class UsuarioController {
   constructor(
     @repository(UsuarioRepository)
     public usuarioRepository : UsuarioRepository,
+    @service(AutenticacionService)
+    public servicioAutenticacion : AutenticacionService
   ) {}
+
+  @post('/identificarUsuario',{
+    responses: {
+    '200':{
+      description: 'Identificacion de usuarios'
+      }
+    }
+  })
+  async identificarUsuarios(
+    @requestBody() credenciales : Credenciales
+    ){
+      let u = await this.servicioAutenticacion.IdentificarUsuario(credenciales.user, credenciales.clave);
+      if(u){
+        let token = this.servicioAutenticacion.GenerarTokenJWT(u);
+        return{
+          datos:{
+            nombre: u.nombre,
+            correo: u.correo,
+            rol: u.rol
+          },
+          tk: token
+        }
+      }else{
+        throw new HttpErrors[401]('Datos inválidos');
+      }
+  }
 
   @post('/usuarios')
   @response(200, {
@@ -44,7 +76,21 @@ export class UsuarioController {
     })
     usuario: Omit<Usuario, 'id'>,
   ): Promise<Usuario> {
-    return this.usuarioRepository.create(usuario);
+    let clave = this.servicioAutenticacion.GenerarClave();
+    let claveCifrada = this.servicioAutenticacion.CifrarClave(clave);
+    usuario.contrasena = claveCifrada
+    let u = await this.usuarioRepository.create(usuario);
+
+    //Notificación al usuario
+    let destino = usuario.correo;
+    let asunto = 'credenciales de acceso al sistema';
+    let contenido = `Hola ${usuario.nombre}, su usuario es ${usuario.correo} y la contraseña es ${clave}`;
+    fetch(`http:127.0.0.1:5000/email?correo_destino=${destino}&asunto=${asunto}&contenido=${contenido}`)
+      .then((data:any)=>{
+        console.log(data);
+      })
+    return u;
+
   }
 
   @get('/usuarios/count')
