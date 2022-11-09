@@ -26,6 +26,7 @@ export class ProductosServicioController {
     public productosServicioRepository : ProductosServicioRepository,
   ) {}
 
+  
   @post('/productos-servicios')
   @response(200, {
     description: 'ProductosServicio model instance',
