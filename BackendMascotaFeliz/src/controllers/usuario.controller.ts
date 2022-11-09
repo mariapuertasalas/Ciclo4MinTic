@@ -80,7 +80,6 @@ export class UsuarioController {
     let claveCifrada = this.servicioAutenticacion.CifrarClave(clave);
     usuario.contrasena = claveCifrada
     let u = await this.usuarioRepository.create(usuario);
-
     //Notificación al usuario
     let destino = usuario.correo;
     let asunto = 'credenciales de acceso al sistema';

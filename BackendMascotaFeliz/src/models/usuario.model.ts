@@ -3,6 +3,7 @@ import {Mascota} from './mascota.model';
 
 @model()
 export class Usuario extends Entity {
+  
   @property({
     type: 'string',
     id: true,
