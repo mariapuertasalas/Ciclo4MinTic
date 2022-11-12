@@ -7,9 +7,9 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-  { path: 'cambio-clave-seguridad', component:CambioClaveComponent},
-  { path: 'login-seguridad', component:LoginComponent},
-  { path: 'recuperar-clave-seguridad', component:RecuperarClaveComponent},
+  { path: 'cambio-clave', component:CambioClaveComponent},
+  { path: 'login', component:LoginComponent},
+  { path: 'recuperar-clave', component:RecuperarClaveComponent},
 ];
 
 @NgModule({

@@ -1,1 +1,56 @@
-<p>crear-contacto works!</p>
+<div class="general-container">
+<div class="container-lg">
+<form method="POST" action="/index.php" class="needs-validation" novalidate>
+
+  <div class="form-row">
+      <div class="col-md-6 mb-3 column">
+          <label for="validarNombre">Nombre:<span class="red">*</span></label>
+          <input type="text" class="form-control" id="validarNombre" name="validarNombre" required>
+      </div>
+  </div>
+
+  <div class="form-row">
+      <div class="col-md-6 mb-3 column">
+          <label for="validarApellidos">Apellidos:<span class="red">*</span></label>
+          <input type="text" class="form-control" id="validarApellidos" name="validarApellidos" required>
+      </div>
+  </div>
+
+  <div class="form-row">
+      <div class="col-md-6 mb-3 column">
+          <label for="validarEmail">Email:<span class="red">*</span></label>
+          <input type="email" class="form-control" id="validarEmail" name="validarEmail" required>
+      </div>
+  </div>
+
+  <div class="form-row">
+      <div class="col-md-6 mb-3 column">
+          <label for="validarTelefono">Teléfono:</label>
+          <input type="phone" class="form-control" id="validarTelefono" name="validarTelefono">
+      </div>
+  </div>
+
+  <div class="form-row">
+      <div class="col-md-6 mb-3 column">
+          <label for="validarAsunto">Asunto:</label>
+          <input type="text" class="form-control" id="validarAsunto" name="validarAsunto" required>
+      </div>
+  </div>
+
+  <div class="form-group">
+    <div class="col-md-6 mb-3 column">
+      <label for="validationMensaje">Mensaje:<span class="red">*</span></label>
+      <textarea class="form-control" id="validationMensaje" name="validationMensaje" rows="3" min="25" required></textarea>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="col-md-6 mb-3 column">
+      <button class="btn btn-primary" type="submit" name="submit">Enviar</button>
+    </div>
+  </div>
+
+</form>
+</div>
+</div>
+

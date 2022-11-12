@@ -1,14 +1,15 @@
-import { ErrorComponent } from './template/error/error.component';
-import { HomeComponent } from './template/home/home.component';
+
+import { PagesRoutingModule } from './template/pages/pages-routing.module';
+import { AdministracionRoutingModule } from './modulos/administracion/administracion-routing.module';
+import { ComercialRoutingModule } from './modulos/comercial/comercial-routing.module';
+import { SeguridadRoutingModule } from './modulos/seguridad/seguridad-routing.module';
+
+import { ErrorComponent } from './template/pages/error/error.component';
 
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-  {
-    path: "home",
-    component: HomeComponent
-  },
   {
     path: "",
     pathMatch: "full",
@@ -30,10 +31,22 @@ const routes: Routes = [
     path: "comercial",
     loadChildren: () => import("./modulos/comercial/comercial.module").then(x => x.ComercialModule)
   },
+  {
+    path: "pages",
+    loadChildren: () => import("./template/pages/pages.module").then(x => x.PagesModule)
+  }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  imports: [
+    AdministracionRoutingModule,
+    ComercialRoutingModule,
+    SeguridadRoutingModule,
+    PagesRoutingModule,
+    RouterModule.forRoot(routes)
+  ],
+  exports: [
+    RouterModule
+  ]
 })
 export class AppRoutingModule { }
