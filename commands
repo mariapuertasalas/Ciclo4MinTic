@@ -1,0 +1,126 @@
+ESTRUCTURA DEL PROYECTO (FRONT END):
+
+======================================
+Maquetación de Modulos:
+======================================
+
+Seguridad
+- Identificación
+- Cambio Clave
+- Recuperar Clave
+Administración
+- Usuarios
+- Mascotas
+- Productos
+- Sucursales
+- Plan
+Comercial
+- Servicio
+- Contactos
+
+======================================
+Generar Modulos:
+======================================
+
+ng generate module modulos/seguridad --routing
+ng generate module modulos/administracion --routing
+ng generate module modulos/comercial --routing
+
+======================================
+Generar Componentes:
+======================================
+
+===== Seguridad =====
+
+ng generate component modulos/seguridad/login
+ng generate component modulos/seguridad/cambio_clave
+ng generate component modulos/seguridad/recuperar_clave
+
+===== Administración =====
+
+ng generate component modulos/administracion/usuarios/crear-usuario
+ng generate component modulos/administracion/usuarios/buscar-usuario
+ng generate component modulos/administracion/usuarios/editar-usuario
+ng generate component modulos/administracion/usuarios/eliminar-usuario
+ng generate component modulos/administracion/usuarios/listar-usuario
+
+ng generate component modulos/administracion/mascotas/crear-mascota
+ng generate component modulos/administracion/mascotas/buscar-mascota
+ng generate component modulos/administracion/mascotas/editar-mascota
+ng generate component modulos/administracion/mascotas/eliminar-mascota
+ng generate component modulos/administracion/mascotas/listar-mascota
+
+ng generate component modulos/administracion/productos/crear-producto
+ng generate component modulos/administracion/productos/buscar-producto
+ng generate component modulos/administracion/productos/editar-producto
+ng generate component modulos/administracion/productos/eliminar-producto
+ng generate component modulos/administracion/productos/listar-producto
+
+ng generate component modulos/administracion/sucursales/crear-sucursal
+ng generate component modulos/administracion/sucursales/buscar-sucursal
+ng generate component modulos/administracion/sucursales/editar-sucursal
+ng generate component modulos/administracion/sucursales/eliminar-sucursal
+ng generate component modulos/administracion/sucursales/listar-sucursal
+
+ng generate component modulos/administracion/planes/crear-plan
+ng generate component modulos/administracion/planes/buscar-plan
+ng generate component modulos/administracion/planes/editar-plan
+ng generate component modulos/administracion/planes/eliminar-plan
+ng generate component modulos/administracion/planes/listar-plan
+
+===== Comercial =====
+
+ng generate component modulos/comercial/servicios/crear-servicio
+ng generate component modulos/comercial/servicios/buscar-servicio
+ng generate component modulos/comercial/servicios/editar-servicio
+ng generate component modulos/comercial/servicios/eliminar-servicio
+ng generate component modulos/comercial/servicios/listar-servicio
+
+ng generate component modulos/comercial/contactos/crear-contacto
+ng generate component modulos/comercial/contactos/buscar-contacto
+ng generate component modulos/comercial/contactos/editar-contacto
+ng generate component modulos/comercial/contactos/eliminar-contacto
+ng generate component modulos/comercial/contactos/listar-contacto
+
+===== Template =====
+
+ng generate module template/components --routing
+ng generate component template/components/services
+ng generate component template/components/testimonials
+ng generate component template/components/slider
+ng generate component template/components/header
+ng generate component template/components/footer
+ng generate component template/components/header-page
+ng generate component template/components/services-page
+ng generate component template/components/quienes-somos
+
+ng generate module template/pages --routing
+ng generate component template/pages/contacto-page
+ng generate component template/pages/servicios-page
+ng generate component template/pages/quienes-somos-page
+ng generate component template/pages/home
+ng generate component template/pages/error
+
+====== Install CSS Frameworks ======
+Bootstrap:
+npm install bootstrap@v5.2.2
+
+======= Opciones de Menu - Template Comercial =======
+Home
+¿Quienes somos?
+Productos
+Contacto
+Iniciar Sesión.
+
+
+1. Instalar Angular Command Line Interface (CLI):
+npm install -g @angular/cli
+
+2. Crear aplicación Angular:
+ng new FrontendMascotaFeliz
+
+3. Ejecutar servidor:
+ng serve -o
+
+4. Creación de modulos:
+ng generate module modulos/seguridad --routing

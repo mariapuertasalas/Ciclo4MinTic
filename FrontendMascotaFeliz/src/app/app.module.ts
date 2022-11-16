@@ -1,4 +1,5 @@
 
+
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
@@ -10,6 +11,8 @@ import { HeaderComponent } from './template/components/header/header.component';
 import { FooterComponent } from './template/components/footer/footer.component';
 import { ServicesComponent } from './template/components/services/services.component';
 import { HeaderPageComponent } from './template/components/header-page/header-page.component';
+import { QuienesSomosComponent } from './template/components/quienes-somos/quienes-somos.component';
+
 
 //Pages
 import { HomeComponent } from './template/pages/home/home.component';
@@ -38,6 +41,7 @@ import { CrearContactoComponent } from './modulos/comercial/contactos/crear-cont
     FooterComponent,
     ServicesComponent,
     HeaderPageComponent,
+    QuienesSomosComponent,
 
     //Paginas principales
     HomeComponent,
