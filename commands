@@ -82,7 +82,7 @@ ng generate component modulos/comercial/contactos/editar-contacto
 ng generate component modulos/comercial/contactos/eliminar-contacto
 ng generate component modulos/comercial/contactos/listar-contacto
 
-===== Template =====
+===== Template UX =====
 
 ng generate module template/components --routing
 ng generate component template/components/services
@@ -100,6 +100,23 @@ ng generate component template/pages/servicios-page
 ng generate component template/pages/quienes-somos-page
 ng generate component template/pages/home
 ng generate component template/pages/error
+
+===== Template Management =====
+
+ng generate module management/components --routing
+ng generate component management/components/header-mgmt
+ng generate component management/components/menu-mgmt
+
+ng generate module management/pages/administracion --routing
+ng generate component management/pages/administracion/mascotas-page
+ng generate component management/pages/administracion/planes-page
+ng generate component management/pages/administracion/productos-page
+ng generate component management/pages/administracion/sucursales-page
+ng generate component management/pages/administracion/usuarios-page
+
+ng generate module management/pages/comercial --routing
+ng generate component management/pages/comercial/contactos-page
+ng generate component management/pages/comercial/productos-servicios-page
 
 ====== Install CSS Frameworks ======
 Bootstrap:

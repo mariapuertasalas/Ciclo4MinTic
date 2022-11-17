@@ -76,7 +76,8 @@ export class UsuarioController {
     })
     usuario: Omit<Usuario, 'id'>,
   ): Promise<Usuario> {
-    let clave = this.servicioAutenticacion.GenerarClave();
+    //let clave = this.servicioAutenticacion.GenerarClave();
+    let clave = usuario.contrasena;
     let claveCifrada = this.servicioAutenticacion.CifrarClave(clave);
     usuario.contrasena = claveCifrada
     let u = await this.usuarioRepository.create(usuario);
@@ -130,7 +131,10 @@ export class UsuarioController {
     @requestBody({
       content: {
         'application/json': {
-          schema: getModelSchemaRef(Usuario, {partial: true}),
+          schema: getModelSchemaRef(Usuario, {
+            partial: true,
+            exclude: ['contrasena'],
+          }),
         },
       },
     })
@@ -165,12 +169,19 @@ export class UsuarioController {
     @requestBody({
       content: {
         'application/json': {
-          schema: getModelSchemaRef(Usuario, {partial: true}),
+          schema: getModelSchemaRef(Usuario, {
+            partial: true
+          }),
         },
       },
     })
     usuario: Usuario,
-  ): Promise<void> {
+  ): Promise<void> { 
+    if(usuario.contrasena !== undefined){
+      let clave = usuario.contrasena;
+      let claveCifrada = this.servicioAutenticacion.CifrarClave(clave);
+      usuario.contrasena = claveCifrada;
+    }
     await this.usuarioRepository.updateById(id, usuario);
   }
 
@@ -182,6 +193,12 @@ export class UsuarioController {
     @param.path.string('id') id: string,
     @requestBody() usuario: Usuario,
   ): Promise<void> {
+    if(usuario.contrasena != '' && usuario.contrasena != undefined){
+      let clave = usuario.contrasena;
+      let claveCifrada = this.servicioAutenticacion.CifrarClave(clave);
+      usuario.contrasena = claveCifrada
+    }
+
     await this.usuarioRepository.replaceById(id, usuario);
   }
 
