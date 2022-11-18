@@ -1,7 +1,8 @@
 
 import { PagesRoutingModule } from './template/pages/pages-routing.module';
-import { AdministracionRoutingModule } from './modulos/administracion/administracion-routing.module';
-import { ComercialRoutingModule } from './modulos/comercial/comercial-routing.module';
+
+import { AdministracionRoutingModule } from './management/pages/administracion/administracion-routing.module';
+import { ComercialRoutingModule } from './management/pages/comercial/comercial-routing.module';
 import { SeguridadRoutingModule } from './modulos/seguridad/seguridad-routing.module';
 
 import { ErrorComponent } from './template/pages/error/error.component';
@@ -20,21 +21,23 @@ const routes: Routes = [
     component: ErrorComponent
   },
   {
+    path: "pages",
+    loadChildren: () => import("./template/pages/pages.module").then(x => x.PagesModule)
+  },
+  {
     path: "seguridad",
     loadChildren: () => import("./modulos/seguridad/seguridad.module").then(x => x.SeguridadModule)
   },
+
   {
     path: "administracion",
-    loadChildren: () => import("./modulos/administracion/administracion.module").then(x => x.AdministracionModule)
+    loadChildren: () => import("./management/pages/administracion/administracion.module").then(x => x.AdministracionModule)
   },
   {
     path: "comercial",
-    loadChildren: () => import("./modulos/comercial/comercial.module").then(x => x.ComercialModule)
-  },
-  {
-    path: "pages",
-    loadChildren: () => import("./template/pages/pages.module").then(x => x.PagesModule)
+    loadChildren: () => import("./management/pages/comercial/comercial.module").then(x => x.ComercialModule)
   }
+
 ];
 
 @NgModule({

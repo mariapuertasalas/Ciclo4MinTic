@@ -5,17 +5,21 @@ import { SeguridadRoutingModule } from './seguridad-routing.module';
 import { LoginComponent } from './login/login.component';
 import { CambioClaveComponent } from './cambio-clave/cambio-clave.component';
 import { RecuperarClaveComponent } from './recuperar-clave/recuperar-clave.component';
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SignOutComponent } from './sign-out/sign-out.component';
 
 @NgModule({
   declarations: [
     LoginComponent,
     CambioClaveComponent,
-    RecuperarClaveComponent
+    RecuperarClaveComponent,
+    SignOutComponent
   ],
   imports: [
     CommonModule,
-    SeguridadRoutingModule
+    SeguridadRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class SeguridadModule { }

@@ -4,10 +4,6 @@ ESTRUCTURA DEL PROYECTO (FRONT END):
 Maquetación de Modulos:
 ======================================
 
-Seguridad
-- Identificación
-- Cambio Clave
-- Recuperar Clave
 Administración
 - Usuarios
 - Mascotas
@@ -15,8 +11,10 @@ Administración
 - Sucursales
 - Plan
 Comercial
-- Servicio
+- Servicios
 - Contactos
+Seguridad
+- Cambio Clave
 
 ======================================
 Generar Modulos:
@@ -33,53 +31,33 @@ Generar Componentes:
 ===== Seguridad =====
 
 ng generate component modulos/seguridad/login
+ng generate component modulos/seguridad/sign_out
 ng generate component modulos/seguridad/cambio_clave
 ng generate component modulos/seguridad/recuperar_clave
 
 ===== Administración =====
 
 ng generate component modulos/administracion/usuarios/crear-usuario
-ng generate component modulos/administracion/usuarios/buscar-usuario
-ng generate component modulos/administracion/usuarios/editar-usuario
-ng generate component modulos/administracion/usuarios/eliminar-usuario
 ng generate component modulos/administracion/usuarios/listar-usuario
 
 ng generate component modulos/administracion/mascotas/crear-mascota
-ng generate component modulos/administracion/mascotas/buscar-mascota
-ng generate component modulos/administracion/mascotas/editar-mascota
-ng generate component modulos/administracion/mascotas/eliminar-mascota
 ng generate component modulos/administracion/mascotas/listar-mascota
 
 ng generate component modulos/administracion/productos/crear-producto
-ng generate component modulos/administracion/productos/buscar-producto
-ng generate component modulos/administracion/productos/editar-producto
-ng generate component modulos/administracion/productos/eliminar-producto
 ng generate component modulos/administracion/productos/listar-producto
 
 ng generate component modulos/administracion/sucursales/crear-sucursal
-ng generate component modulos/administracion/sucursales/buscar-sucursal
-ng generate component modulos/administracion/sucursales/editar-sucursal
-ng generate component modulos/administracion/sucursales/eliminar-sucursal
 ng generate component modulos/administracion/sucursales/listar-sucursal
 
 ng generate component modulos/administracion/planes/crear-plan
-ng generate component modulos/administracion/planes/buscar-plan
-ng generate component modulos/administracion/planes/editar-plan
-ng generate component modulos/administracion/planes/eliminar-plan
 ng generate component modulos/administracion/planes/listar-plan
 
 ===== Comercial =====
 
 ng generate component modulos/comercial/servicios/crear-servicio
-ng generate component modulos/comercial/servicios/buscar-servicio
-ng generate component modulos/comercial/servicios/editar-servicio
-ng generate component modulos/comercial/servicios/eliminar-servicio
 ng generate component modulos/comercial/servicios/listar-servicio
 
 ng generate component modulos/comercial/contactos/crear-contacto
-ng generate component modulos/comercial/contactos/buscar-contacto
-ng generate component modulos/comercial/contactos/editar-contacto
-ng generate component modulos/comercial/contactos/eliminar-contacto
 ng generate component modulos/comercial/contactos/listar-contacto
 
 ===== Template UX =====
@@ -106,6 +84,7 @@ ng generate component template/pages/error
 ng generate module management/components --routing
 ng generate component management/components/header-mgmt
 ng generate component management/components/menu-mgmt
+ng generate component management/components/buttons-mgmt
 
 ng generate module management/pages/administracion --routing
 ng generate component management/pages/administracion/mascotas-page
@@ -117,6 +96,12 @@ ng generate component management/pages/administracion/usuarios-page
 ng generate module management/pages/comercial --routing
 ng generate component management/pages/comercial/contactos-page
 ng generate component management/pages/comercial/productos-servicios-page
+
+====== Servicios ======
+
+ng generate service services/seguridad
+ng generate service services/api-rest
+ng generate service services/comercial
 
 ====== Install CSS Frameworks ======
 Bootstrap:

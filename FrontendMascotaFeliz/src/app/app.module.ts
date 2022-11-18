@@ -1,5 +1,7 @@
+import { LoginComponent } from './modulos/seguridad/login/login.component';
 
-import { ProductosServicio } from './../../../BackendMascotaFeliz/src/models/productos-servicio.model';
+
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -23,10 +25,14 @@ import { ContactoPageComponent } from './template/pages/contacto-page/contacto-p
 import { ServiciosPageComponent } from './template/pages/servicios-page/servicios-page.component';
 import { QuienesSomosPageComponent } from './template/pages/quienes-somos-page/quienes-somos-page.component';
 
+
 //Modules
 //Administración
 //Componentes:
 import { CrearUsuarioComponent } from './modulos/administracion/usuarios/crear-usuario/crear-usuario.component';
+import { HeaderMgmtComponent }from './management/components/header-mgmt/header-mgmt.component';
+import { MenuMgmtComponent }from './management/components/menu-mgmt/menu-mgmt.component';
+import { ButtonsMgmtComponent } from './management/components/buttons-mgmt/buttons-mgmt.component';
 //Pages
 import { MascotasPageComponent } from './management/pages/administracion/mascotas-page/mascotas-page.component';
 import { PlanesPageComponent } from './management/pages/administracion/planes-page/planes-page.component';
@@ -34,30 +40,42 @@ import { ProductosPageComponent } from './management/pages/administracion/produc
 import { SucursalesPageComponent } from './management/pages/administracion/sucursales-page/sucursales-page.component';
 import { UsuariosPageComponent } from './management/pages/administracion/usuarios-page/usuarios-page.component';
 
+
 //Comercial
 import { ContactosPageComponent } from './management/pages/comercial/contactos-page/contactos-page.component';
 import { ProductosServiciosPageComponent } from './management/pages/comercial/productos-servicios-page/productos-servicios-page.component';
 import { CrearContactoComponent } from './modulos/comercial/contactos/crear-contacto/crear-contacto.component';
+import { ListarUsuarioComponent } from './modulos/administracion/usuarios/listar-usuario/listar-usuario.component';
+
+import { FormsModule } from '@angular/forms'
+import { ReactiveFormsModule} from '@angular/forms'
+import { HttpClientModule } from '@angular/common/http'
 
 //Seguridad
-
 @NgModule({
   declarations: [
     //Componentes de Gestión
     //Comercial
+    ContactosPageComponent,
     CrearContactoComponent,
     ProductosServiciosPageComponent,
-    ContactosPageComponent,
+
 
     //Administración
     //Componentes:
+    HeaderMgmtComponent,
+    MenuMgmtComponent,
+    ButtonsMgmtComponent,
     CrearUsuarioComponent,
+    ListarUsuarioComponent,
+
     //Paginas:
     MascotasPageComponent,
     PlanesPageComponent,
     ProductosPageComponent,
     SucursalesPageComponent,
     UsuariosPageComponent,
+    ContactoPageComponent,
 
 
     //Seguridad
@@ -81,11 +99,14 @@ import { CrearContactoComponent } from './modulos/comercial/contactos/crear-cont
     QuienesSomosPageComponent,
 
 
-
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    FontAwesomeModule,
+    AppRoutingModule,
+    ReactiveFormsModule,
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

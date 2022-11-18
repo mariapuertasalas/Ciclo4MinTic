@@ -31,8 +31,7 @@ export class AutenticacionService {
 
   IdentificarUsuario(user: string, clave: string) {
     try {
-      let pass = cryptoJS.MD5(clave).toString();
-      let u = this.usuarioRepository.findOne({where: {correo: user, contrasena: pass}});
+      let u = this.usuarioRepository.findOne({where: {correo: user, contrasena: clave}});
       if (u) {
         return u
       }

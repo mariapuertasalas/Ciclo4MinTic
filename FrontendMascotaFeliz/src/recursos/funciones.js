@@ -1,9 +1,9 @@
 (function () {
     'use strict'
-  
+
     // Fetch all the forms we want to apply custom Bootstrap validation styles to
     var forms = document.querySelectorAll('.needs-validation')
-  
+
     // Loop over them and prevent submission
     Array.prototype.slice.call(forms)
       .forEach(function (form) {
@@ -15,13 +15,14 @@
             RegistarUsuario();
             event.preventDefault()
           }
-  
+
           form.classList.add('was-validated')
         }, false)
       })
   })()
 
   function RegistarUsuario(){
+    
     let cedula = document.querySelector("#txtCedula").value;
     let nombres = document.querySelector("#txtNombre").value;
     let apellidos = document.querySelector("#txtApellido").value;
@@ -46,6 +47,6 @@
         }
     }).then(res =>res.json())
     .then(mensaje =>{
-       console.log(mensaje) 
+       console.log(mensaje)
     })
   }
