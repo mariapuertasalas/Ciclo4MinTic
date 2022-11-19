@@ -68,4 +68,9 @@ export class SeguridadService {
     return this.userDataInSession.asObservable();
   }
 
+  getToken(){
+    let userSession = this.getDataFromSession();
+    return userSession.tk;
+  }
+
 }

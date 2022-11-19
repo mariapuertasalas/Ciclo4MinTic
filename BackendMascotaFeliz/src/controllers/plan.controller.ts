@@ -19,14 +19,16 @@ import {
 } from '@loopback/rest';
 import {Plan} from '../models';
 import {PlanRepository} from '../repositories';
+import { authenticate } from '@loopback/authentication';
 
+@authenticate('admin')
 export class PlanController {
   constructor(
     @repository(PlanRepository)
     public planRepository : PlanRepository,
   ) {}
 
-  @post('/plans')
+  @post('/planes')
   @response(200, {
     description: 'Plan model instance',
     content: {'application/json': {schema: getModelSchemaRef(Plan)}},
@@ -47,7 +49,7 @@ export class PlanController {
     return this.planRepository.create(plan);
   }
 
-  @get('/plans/count')
+  @get('/planes/count')
   @response(200, {
     description: 'Plan model count',
     content: {'application/json': {schema: CountSchema}},
@@ -58,7 +60,7 @@ export class PlanController {
     return this.planRepository.count(where);
   }
 
-  @get('/plans')
+  @get('/planes')
   @response(200, {
     description: 'Array of Plan model instances',
     content: {
@@ -76,7 +78,7 @@ export class PlanController {
     return this.planRepository.find(filter);
   }
 
-  @patch('/plans')
+  @patch('/planes')
   @response(200, {
     description: 'Plan PATCH success count',
     content: {'application/json': {schema: CountSchema}},
@@ -95,7 +97,7 @@ export class PlanController {
     return this.planRepository.updateAll(plan, where);
   }
 
-  @get('/plans/{id}')
+  @get('/planes/{id}')
   @response(200, {
     description: 'Plan model instance',
     content: {
@@ -111,7 +113,7 @@ export class PlanController {
     return this.planRepository.findById(id, filter);
   }
 
-  @patch('/plans/{id}')
+  @patch('/planes/{id}')
   @response(204, {
     description: 'Plan PATCH success',
   })
@@ -129,7 +131,7 @@ export class PlanController {
     await this.planRepository.updateById(id, plan);
   }
 
-  @put('/plans/{id}')
+  @put('/planes/{id}')
   @response(204, {
     description: 'Plan PUT success',
   })
@@ -140,7 +142,7 @@ export class PlanController {
     await this.planRepository.replaceById(id, plan);
   }
 
-  @del('/plans/{id}')
+  @del('/planes/{id}')
   @response(204, {
     description: 'Plan DELETE success',
   })

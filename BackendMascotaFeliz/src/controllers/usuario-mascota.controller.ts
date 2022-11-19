@@ -20,7 +20,8 @@ import {
   Mascota,
 } from '../models';
 import {UsuarioRepository} from '../repositories';
-
+import { authenticate } from '@loopback/authentication';
+@authenticate('admin')
 export class UsuarioMascotaController {
   constructor(
     @repository(UsuarioRepository) protected usuarioRepository: UsuarioRepository,

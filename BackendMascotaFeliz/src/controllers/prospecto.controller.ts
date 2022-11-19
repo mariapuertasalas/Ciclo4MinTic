@@ -19,7 +19,8 @@ import {
 } from '@loopback/rest';
 import {Prospecto} from '../models';
 import {ProspectoRepository} from '../repositories';
-
+import { authenticate } from '@loopback/authentication';
+@authenticate('admin')
 export class ProspectoController {
   constructor(
     @repository(ProspectoRepository)

@@ -3,6 +3,7 @@ import { SeguridadService } from './../../../services/seguridad.service';
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { Router } from "@angular/router";
+import { ThisReceiver } from '@angular/compiler';
 
 
 @Component({
@@ -13,6 +14,7 @@ import { Router } from "@angular/router";
 export class MenuMgmtComponent implements OnInit {
 
   sessionWasStarted: boolean = false;
+  roleInSession: String = "";
 
   subs: Subscription = new Subscription();
 
@@ -23,6 +25,7 @@ export class MenuMgmtComponent implements OnInit {
      this.subs = this.seguridadService.getUserDataInSession().subscribe(
       (datos:loginModel)=>{
         this.sessionWasStarted = datos.isIdentified;
+        this.roleInSession = datos.datos?.rol != undefined?datos.datos?.rol.toUpperCase():'';
       }
     );
   }

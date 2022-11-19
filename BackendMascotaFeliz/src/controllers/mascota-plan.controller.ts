@@ -11,7 +11,9 @@ import {
   Plan,
 } from '../models';
 import {MascotaRepository} from '../repositories';
+import { authenticate } from '@loopback/authentication';
 
+@authenticate('admin')
 export class MascotaPlanController {
   constructor(
     @repository(MascotaRepository)

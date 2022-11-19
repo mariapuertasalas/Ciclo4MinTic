@@ -1,0 +1,14 @@
+.column{
+  margin: 0px auto !important;
+}
+.general-container{
+  padding: 90px 0px 50px 0px;
+}
+
+.form-row{
+  margin-bottom: 20px;
+}
+
+.form-group{
+  margin-bottom: 20px;
+}

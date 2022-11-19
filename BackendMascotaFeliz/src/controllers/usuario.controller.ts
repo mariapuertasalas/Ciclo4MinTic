@@ -1,3 +1,4 @@
+import { authenticate } from '@loopback/authentication';
 import {service} from '@loopback/core';
 import {
   Count,
@@ -19,11 +20,13 @@ import {
   response,
   HttpErrors,
 } from '@loopback/rest';
+import { Llaves } from '../config/Llaves';
 import {Credenciales, Usuario} from '../models';
 import {UsuarioRepository} from '../repositories';
 import {AutenticacionService} from '../services';
 const fetch = require('node-fetch');
 
+@authenticate('admin')
 export class UsuarioController {
   constructor(
     @repository(UsuarioRepository)
@@ -32,6 +35,7 @@ export class UsuarioController {
     public servicioAutenticacion : AutenticacionService
   ) {}
 
+  @authenticate.skip()
   @post('/identificarUsuario',{
     responses: {
     '200':{
@@ -58,6 +62,7 @@ export class UsuarioController {
       }
   }
 
+
   @post('/usuarios')
   @response(200, {
     description: 'Usuario model instance',
@@ -81,11 +86,12 @@ export class UsuarioController {
     let claveCifrada = this.servicioAutenticacion.CifrarClave(clave);
     usuario.contrasena = claveCifrada
     let u = await this.usuarioRepository.create(usuario);
+
     //Notificación al usuario
     let destino = usuario.correo;
     let asunto = 'credenciales de acceso al sistema';
     let contenido = `Hola ${usuario.nombre}, su usuario es ${usuario.correo} y la contraseña es ${clave}`;
-    fetch(`http:127.0.0.1:5000/email?correo_destino=${destino}&asunto=${asunto}&contenido=${contenido}`)
+    fetch(`${Llaves.urlServiceNotificaciones}/email?correo_destino=${destino}&asunto=${asunto}&contenido=${contenido}`)
       .then((data:any)=>{
         console.log(data);
       })

@@ -1,8 +1,7 @@
 import {AuthenticationStrategy} from '@loopback/authentication';
 import {service} from '@loopback/core';
-import {HttpErrors, RedirectRoute} from '@loopback/rest';
+import {HttpErrors} from '@loopback/rest';
 import {UserProfile} from '@loopback/security';
-import {profile} from 'console';
 import {Request} from 'express';
 import parseBearerToken from 'parse-bearer-token';
 import {AutenticacionService} from '../services';

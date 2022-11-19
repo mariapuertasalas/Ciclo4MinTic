@@ -19,7 +19,9 @@ import {
 } from '@loopback/rest';
 import {Mascota} from '../models';
 import {MascotaRepository} from '../repositories';
+import { authenticate } from '@loopback/authentication';
 
+@authenticate('admin')
 export class MascotaController {
   constructor(
     @repository(MascotaRepository)

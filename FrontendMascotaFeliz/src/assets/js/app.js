@@ -5,6 +5,7 @@ function updateEntity(){
 
 
 function doOperation(method, id=''){
+
     let obj = new Object();
     let componentes = document.getElementsByClassName('formulario');
     for(i = 0; i < componentes.length; i++){
@@ -43,3 +44,4 @@ function cleanFields(){
       document.getElementById(id).value = '';
     }
 }
+

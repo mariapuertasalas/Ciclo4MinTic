@@ -20,13 +20,15 @@ import {
   Mascota,
 } from '../models';
 import {PlanRepository} from '../repositories';
+import { authenticate } from '@loopback/authentication';
 
+@authenticate('admin')
 export class PlanMascotaController {
   constructor(
     @repository(PlanRepository) protected planRepository: PlanRepository,
   ) { }
 
-  @get('/plans/{id}/mascotas', {
+  @get('/planes/{id}/mascotas', {
     responses: {
       '200': {
         description: 'Array of Plan has many Mascota',
@@ -45,7 +47,7 @@ export class PlanMascotaController {
     return this.planRepository.mascotas(id).find(filter);
   }
 
-  @post('/plans/{id}/mascotas', {
+  @post('/planes/{id}/mascotas', {
     responses: {
       '200': {
         description: 'Plan model instance',
@@ -70,7 +72,7 @@ export class PlanMascotaController {
     return this.planRepository.mascotas(id).create(mascota);
   }
 
-  @patch('/plans/{id}/mascotas', {
+  @patch('/planes/{id}/mascotas', {
     responses: {
       '200': {
         description: 'Plan.Mascota PATCH success count',
@@ -93,7 +95,7 @@ export class PlanMascotaController {
     return this.planRepository.mascotas(id).patch(mascota, where);
   }
 
-  @del('/plans/{id}/mascotas', {
+  @del('/planes/{id}/mascotas', {
     responses: {
       '200': {
         description: 'Plan.Mascota DELETE success count',

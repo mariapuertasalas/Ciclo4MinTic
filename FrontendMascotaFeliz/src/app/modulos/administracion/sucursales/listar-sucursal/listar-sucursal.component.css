@@ -1,0 +1,24 @@
+.small-buttons{
+  --bs-btn-padding-y: .25rem;
+  --bs-btn-padding-x: .5rem;
+  --bs-btn-font-size: .75rem;
+  margin: 0px 5px 0px 5px;
+}
+
+.table-header{
+  text-align: center;
+}
+
+.table-values{
+  text-align: center;
+}
+
+
+.table-options-header{
+  width: 160px !important;
+  text-align: center;
+}
+
+.table-options-values{
+  width: 160px !important;
+}
