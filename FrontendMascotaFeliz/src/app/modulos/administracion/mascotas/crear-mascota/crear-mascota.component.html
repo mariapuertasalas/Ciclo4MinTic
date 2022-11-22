@@ -2,47 +2,76 @@
   <div class="general-container">
     <div class="container-lg">
       <h2>Mascotas</h2>
-      <form method="POST" action="/index.php" class="needs-validation" novalidate>
+      <form method="POST" (ngSubmit)="doOperation()" class="needs-validation" [formGroup]="fgValidator">
         <div class="row">
           <input type='hidden' id="hdnId" value="">
-          <input type='hidden' id="hdnModulo" value="mascotas">
+          <input type='hidden' id="hdnAction" value="hdnAction">
+          <input type="hidden" id="isClient"  [value]="opcion">
           <div class="col-sm-4">
-            <label for="txt_nombre" class="txt_cedula"  class="form-label">Nombre</label>
-            <input type="text" class="form-control formulario" id="txt_nombre" placeholder="" value="" required>
+            <label for="txt_nombre"  class="form-label">Nombre</label>
+            <input formControlName="nombre" type="text"  class="form-control formulario" id="txt_nombre" placeholder="" value="" required>
             <div class="invalid-feedback"> Valid first name is required.</div>
           </div>
+
           <div class="col-sm-4">
           <div class="input-field">
             <label for="txt_foto" class="form-label">Foto</label>
-            <input type="text" class="form-control formulario" id="txt_foto" placeholder="" value="" required>
+            <input  formControlName="foto" type="text" class="form-control formulario" id="txt_foto" placeholder="" value="" required>
             <div class="invalid-feedback"> Valid first name is required. </div>
           </div>
         </div>
 
           <div class="col-sm-4">
             <label for="txt_especie" class="form-label">Especie</label>
-            <input type="text" class="form-control formulario" id="txt_especie" placeholder="" value="" required>
+            <input  formControlName="especie" type="text" class="form-control formulario" id="txt_especie" placeholder="" value="" required>
             <div class="invalid-feedback"> Valid last name is required. </div>
           </div>
 
           <div class="col-sm-4">
-            <label for="txt_estado" class="form-label">Estado</label>
-            <select class="form-select formulario" id="txt_estado" required>
+            <label for="lst_estado" class="form-label">Estado</label>
+            <select  formControlName="estado" class="form-select formulario" id="lst_estado" required>
               <option value=""></option>
-              <option>Pendiente</option>
-              <option>Aprobado</option>
-              <option>Rechazado</option>
+              <option value="Pendiente">Pendiente</option>
+              <option value="Aprobado">Aprobado</option>
+              <option value="Rechazado">Rechazado</option>
             </select>
             <div class="invalid-feedback"> Please select a valid country. </div>
           </div>
-          <div class="col-sm-8">
+
+          <div class="col-sm-4">
+            <label for="lst_cliente" class="form-label">Cliente</label>
+            <select  formControlName="estado" class="form-select formulario" id="lst_cliente" required>
+              <option value="">Seleccione una opción</option>
+              <option *ngFor="let item of listaUsuarios" value="{{item.id}}" >{{item.cedula+" - "+item.nombre+" "+item.apellido}}</option>
+            </select>
+            <div class="invalid-feedback"> Please select a valid country. </div>
+          </div>
+
+          <div class="col-sm-4">
+            <label for="lst_plan" class="form-label">Plan</label>
+            <select  formControlName="estado" class="form-select formulario" id="lst_plan" required>
+              <option value="">Seleccione una opción</option>
+              <option *ngFor="let item of listaPlanes" value="{{item.id}}">{{item.nombre}}</option>
+            </select>
+            <div class="invalid-feedback"> Please select a valid country. </div>
+          </div>
+
+
+          <div class="col-sm-12">
             <label for="txt_comentario" class="form-label">Comentario</label>
-            <input type="phone" class="form-control formulario" id="txt_comentario" placeholder="" required>
-            <div class="invalid-feedback"> Please enter your shipping address. </div>
+            <textarea  formControlName="comentario" type="text" class="form-control formulario" id="txt_comentario" placeholder="" required></textarea>
           </div>
         </div>
-        </form>
-      </div>
-    </div>
-  </main>
+        <div class="general-container">
+          <div class="container-lg">
+            <div class="d-grid gap-2 d-md-block buttons-container">
+              <button id='btnRegistrar'  class="btn btn-outline-secondary buttons-functions" (click)="markAction('registrar')" type="submit">Registrar</button>
+              <button id='btnActualizar' class="btn btn-outline-secondary buttons-functions"  (click)="markAction('actualizar')" type="submit" disabled>Actualizar</button>
+            </div>
+            </div>
+        </div>
 
+      </form>
+    </div>
+  </div>
+</main>

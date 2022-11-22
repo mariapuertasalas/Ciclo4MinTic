@@ -31,13 +31,19 @@ export class Prospecto extends Entity {
     type: 'string',
     required: true,
   })
-  celular: string;
+  telefono: string;
 
   @property({
     type: 'string',
     required: true,
   })
-  comentario: string;
+  asunto: string;
+
+  @property({
+    type: 'string',
+    required: true,
+  })
+  comentarios: string;
 
 
   constructor(data?: Partial<Prospecto>) {

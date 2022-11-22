@@ -34,8 +34,8 @@ export class PlanService {
   }
 
 
-  update(param: PlanModel):Observable<PlanModel>{
-    return this.http.put<PlanModel>(`${this.url}/${this.entity}`, param,{
+  update(param: PlanModel, id:string):Observable<PlanModel>{
+    return this.http.put<PlanModel>(`${this.url}/${this.entity}/${id}`, param,{
       headers: new HttpHeaders({
         'Authorization': `Bearer ${this.token}`
       })

@@ -10,7 +10,7 @@ import { Injectable } from '@angular/core';
 export class ProductoService {
 
   url = 'http://localhost:3000';
-  entity = 'productos';
+  entity = 'productos-servicios';
   token: String = '';
 
   constructor(private http:HttpClient, private seguridadService:SeguridadService) {
@@ -34,8 +34,8 @@ export class ProductoService {
   }
 
 
-  update(param: ProductoModel):Observable<ProductoModel>{
-    return this.http.put<ProductoModel>(`${this.url}/${this.entity}`, param,{
+  update(param: ProductoModel, id:string):Observable<ProductoModel>{
+    return this.http.put<ProductoModel>(`${this.url}/${this.entity}/${id}`, param,{
       headers: new HttpHeaders({
         'Authorization': `Bearer ${this.token}`
       })

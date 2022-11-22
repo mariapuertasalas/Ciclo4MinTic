@@ -27,7 +27,8 @@ export class UsuarioMascotaController {
     @repository(UsuarioRepository) protected usuarioRepository: UsuarioRepository,
   ) { }
 
-  @get('/usuarios/{id}/mascotas', {
+  @authenticate.skip()
+  @get('/usuarios/{id}/mascotas/', {
     responses: {
       '200': {
         description: 'Array of Usuario has many Mascota',
@@ -44,68 +45,5 @@ export class UsuarioMascotaController {
     @param.query.object('filter') filter?: Filter<Mascota>,
   ): Promise<Mascota[]> {
     return this.usuarioRepository.mascotas(id).find(filter);
-  }
-
-  @post('/usuarios/{id}/mascotas', {
-    responses: {
-      '200': {
-        description: 'Usuario model instance',
-        content: {'application/json': {schema: getModelSchemaRef(Mascota)}},
-      },
-    },
-  })
-  async create(
-    @param.path.string('id') id: typeof Usuario.prototype.id,
-    @requestBody({
-      content: {
-        'application/json': {
-          schema: getModelSchemaRef(Mascota, {
-            title: 'NewMascotaInUsuario',
-            exclude: ['id'],
-            optional: ['usuarioId']
-          }),
-        },
-      },
-    }) mascota: Omit<Mascota, 'id'>,
-  ): Promise<Mascota> {
-    return this.usuarioRepository.mascotas(id).create(mascota);
-  }
-
-  @patch('/usuarios/{id}/mascotas', {
-    responses: {
-      '200': {
-        description: 'Usuario.Mascota PATCH success count',
-        content: {'application/json': {schema: CountSchema}},
-      },
-    },
-  })
-  async patch(
-    @param.path.string('id') id: string,
-    @requestBody({
-      content: {
-        'application/json': {
-          schema: getModelSchemaRef(Mascota, {partial: true}),
-        },
-      },
-    })
-    mascota: Partial<Mascota>,
-    @param.query.object('where', getWhereSchemaFor(Mascota)) where?: Where<Mascota>,
-  ): Promise<Count> {
-    return this.usuarioRepository.mascotas(id).patch(mascota, where);
-  }
-
-  @del('/usuarios/{id}/mascotas', {
-    responses: {
-      '200': {
-        description: 'Usuario.Mascota DELETE success count',
-        content: {'application/json': {schema: CountSchema}},
-      },
-    },
-  })
-  async delete(
-    @param.path.string('id') id: string,
-    @param.query.object('where', getWhereSchemaFor(Mascota)) where?: Where<Mascota>,
-  ): Promise<Count> {
-    return this.usuarioRepository.mascotas(id).delete(where);
   }
 }

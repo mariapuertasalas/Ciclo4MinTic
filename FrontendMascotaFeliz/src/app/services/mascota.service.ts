@@ -34,8 +34,8 @@ export class MascotaService {
   }
 
 
-  update(param: MascotaModel):Observable<MascotaModel>{
-    return this.http.put<MascotaModel>(`${this.url}/${this.entity}`, param,{
+  update(param: MascotaModel, id:string):Observable<MascotaModel>{
+    return this.http.put<MascotaModel>(`${this.url}/${this.entity}/${id}`, param,{
       headers: new HttpHeaders({
         'Authorization': `Bearer ${this.token}`
       })

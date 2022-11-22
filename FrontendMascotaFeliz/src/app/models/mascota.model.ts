@@ -8,6 +8,6 @@ export class MascotaModel{
   estado?:string;
   especie?:string;
   comentario?:string;
-  usuario?:UsuarioModel;
-  plan?:PlanModel;
+  usuarioId?:UsuarioModel;
+  planId?:PlanModel;
 }

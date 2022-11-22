@@ -20,6 +20,7 @@ export class MascotaUsuarioController {
     public mascotaRepository: MascotaRepository,
   ) { }
 
+  @authenticate.skip()
   @get('/mascotas/{id}/usuario', {
     responses: {
       '200': {

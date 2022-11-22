@@ -1,4 +1,3 @@
-import { ListarUsuarioComponent } from './../listar-usuario/listar-usuario.component';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { UsuarioService } from 'src/app/services/usuario.service';

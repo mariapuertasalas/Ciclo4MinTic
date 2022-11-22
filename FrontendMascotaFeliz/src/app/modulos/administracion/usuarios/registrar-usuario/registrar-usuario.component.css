@@ -1,0 +1,25 @@
+.column{
+  margin: 0px auto !important;
+}
+.general-container{
+  padding: 50px 0px 50px 0px;
+}
+
+.form-row{
+  margin-bottom: 20px;
+}
+
+.form-group{
+  margin-bottom: 20px;
+}
+
+.buttons-functions{
+  height: 100px;
+  width: 100px;
+  margin: 0px 10px 0px 10px;
+}
+
+.buttons-container{
+  margin: 0px 0px -80px 0px;
+  text-align: center;
+}

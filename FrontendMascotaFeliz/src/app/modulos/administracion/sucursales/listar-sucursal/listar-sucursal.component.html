@@ -14,17 +14,17 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td class="table-values">1</td>
-          <td class="table-values">Bolivar</td>
-          <td class="table-values">Cartagena</td>
-          <td class="table-values">Brisas de Galicia</td>
-          <td class="table-values">605 - 6639548</td>
+        <tr *ngFor="let item of lista; let indice=index">
+          <td class="table-values">{{indice+1}}</td>
+          <td class="table-values">{{item.departamento}}</td>
+          <td class="table-values">{{item.ciudad}}</td>
+          <td class="table-values">{{item.direccion}}</td>
+          <td class="table-values">{{item.telefono}}</td>
           <td class="table-options-values">
-            <button type="button" class="btn btn-outline-secondary  small-buttons" onclick="consultarUsuario('aasdkasdkasñl')">
+            <button type="button" class="btn btn-outline-secondary  small-buttons" (click)="getById(item.id)">
                   Consultar
           </button>
-          <button type="button" class="btn btn-outline-secondary small-buttons" onclick="eliminarUsuario(1)">
+          <button type="button" class="btn btn-outline-secondary small-buttons" (click)="deleteById(item.id)">
                   Eliminar
          </button>
           </td>

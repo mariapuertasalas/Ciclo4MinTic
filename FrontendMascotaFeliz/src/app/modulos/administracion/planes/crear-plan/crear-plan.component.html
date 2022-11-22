@@ -2,27 +2,37 @@
   <div class="general-container">
     <div class="container-lg">
       <h2>Planes</h2>
-      <form method="POST" action="/index.php" class="needs-validation" novalidate>
+      <form method="POST" (ngSubmit)="doOperation()" class="needs-validation" [formGroup]="fgValidator">
         <div class="row">
           <input type='hidden' id="hdnId" value="">
-          <input type='hidden' id="hdnModulo" value="usuarios">
+          <input type='hidden' id="hdnAction" value="hdnAction">
+
           <div class="col-sm-4">
-            <label for="txt_nombre" class="txt_cedula"  class="form-label">Nombre</label>
-            <input type="text" class="form-control formulario" id="txt_nombre" placeholder="" value="" required>
+            <label for="txt_nombre" class="txt_nombre"  class="form-label">Nombre</label>
+            <input formControlName="nombre"  type="text" class="form-control formulario" id="txt_nombre" placeholder="" value="" required>
             <div class="invalid-feedback"> Valid first name is required.</div>
           </div>
           <div class="col-sm-4">
             <label for="txt_descripcion" class="form-label">Descripcion</label>
-            <input type="text" class="form-control formulario" id="txt_descripcion" placeholder="" value="" required>
+            <input formControlName="descripcion" type="text" class="form-control formulario" id="txt_descripcion" placeholder="" value="" required>
             <div class="invalid-feedback"> Valid first name is required. </div>
           </div>
           <div class="col-sm-4">
             <label for="txt_precio" class="form-label">Precio</label>
-            <input type="text" class="form-control formulario" id="txt_precio" placeholder="" value="" required>
+            <input formControlName="precio"  type="text" class="form-control formulario" id="txt_precio" placeholder="" value="" required>
             <div class="invalid-feedback"> Valid last name is required. </div>
           </div>
 
-         
+
+        </div>
+
+        <div class="general-container">
+          <div class="container-lg">
+            <div class="d-grid gap-2 d-md-block buttons-container">
+              <button id='btnRegistrar'  class="btn btn-outline-secondary buttons-functions" (click)="markAction('registrar')" type="submit">Registrar</button>
+              <button id='btnActualizar' class="btn btn-outline-secondary buttons-functions"  (click)="markAction('actualizar')" type="submit" disabled>Actualizar</button>
+            </div>
+            </div>
         </div>
         </form>
       </div>

@@ -34,8 +34,8 @@ export class SucursalService {
   }
 
 
-  update(param: SucursalModel):Observable<SucursalModel>{
-    return this.http.put<SucursalModel>(`${this.url}/${this.entity}`, param,{
+  update(param: SucursalModel, id:string):Observable<SucursalModel>{
+    return this.http.put<SucursalModel>(`${this.url}/${this.entity}/${id}`, param,{
       headers: new HttpHeaders({
         'Authorization': `Bearer ${this.token}`
       })

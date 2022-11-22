@@ -40,7 +40,7 @@ export class SeguridadService {
     if(datosString){
       return JSON.parse(datosString);
     }else{
-      return null;
+      return '';
     }
   }
 

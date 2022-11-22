@@ -31,7 +31,7 @@ export class LoginComponent implements OnInit {
     this.serviceSeguridad.loginUser(usuario, claveCifrada).subscribe(
     (datos:any)=>{
       this.serviceSeguridad.sessionStorage(datos);
-      this.router.navigate(['/usuarios-page']);
+      this.router.navigate(['/mascotas-page']);
     },
     (error:any)=>{
       alert('Datos Invalidos');

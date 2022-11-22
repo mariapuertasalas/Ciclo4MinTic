@@ -6,8 +6,8 @@
       <thead>
         <tr>
           <th scope="col" class="table-header">N°</th>
-          <th scope="col" class="table-header">Nombre</th>
           <th scope="col" class="table-header">Foto</th>
+          <th scope="col" class="table-header">Nombre</th>
           <th scope="col" class="table-header">Especie</th>
           <th scope="col" class="table-header">Comentario</th>
           <th scope="col" class="table-header">Estado</th>
@@ -15,20 +15,20 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td class="table-values">1</td>
-          <td class="table-values">Jackie</td>
-          <td class="table-values">foto</td>
-          <td class="table-values">Perro</td>
-          <td class="table-values">Una especie intensa</td>
-          <td class="table-values">Aprobado</td>
+        <tr *ngFor="let item of lista; let indice=index">
+          <td class="table-values">{{indice+1}}</td>
+          <td class="table-values"><img src="{{item.foto}}" style='width:100px; height:100px;'/> </td>
+          <td class="table-values">{{item.nombre}}</td>
+          <td class="table-values">{{item.especie}}</td>
+          <td class="table-values">{{item.comentario}}</td>
+          <td class="table-values">{{item.estado}}</td>
           <td class="table-options-values">
-            <button type="button" class="btn btn-outline-secondary  small-buttons" onclick="consultarUsuario('aasdkasdkasñl')">
-                  Consultar
-          </button>
-          <button type="button" class="btn btn-outline-secondary small-buttons" onclick="eliminarUsuario(1)">
-                  Eliminar
-         </button>
+            <button type="button" class="btn btn-outline-secondary  small-buttons" (click)="getById(item.id)">
+              Consultar
+      </button>
+      <button type="button" class="btn btn-outline-secondary small-buttons" (click)="deleteById(item.id)">
+              Eliminar
+     </button>
           </td>
         </tr>
       </tbody>

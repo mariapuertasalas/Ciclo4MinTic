@@ -2,32 +2,41 @@
   <div class="general-container">
     <div class="container-lg">
       <h2>Sucursales</h2>
-      <form method="POST" action="/index.php" class="needs-validation" novalidate>
+      <form method="POST" (ngSubmit)="doOperation()" class="needs-validation" [formGroup]="fgValidator">
         <div class="row">
           <input type='hidden' id="hdnId" value="">
-          <input type='hidden' id="hdnModulo" value="usuarios">
+          <input type='hidden' id="hdnAction" value="hdnAction">
+
           <div class="col-sm-4">
-            <label for="txt_departamento" class="txt_cedula"  class="form-label">Departamento</label>
-            <input type="text" class="form-control formulario" id="txt_departamento" placeholder="" value="" required>
+            <label for="txt_departamento" class="txt_departamento"  class="form-label">Departamento</label>
+            <input formControlName="departamento" type="text" class="form-control formulario" id="txt_departamento" placeholder="" value="" required>
             <div class="invalid-feedback"> Valid first name is required.</div>
           </div>
           <div class="col-sm-4">
-            <label for="txt_cuidad" class="form-label">Cuidad</label>
-            <input type="text" class="form-control formulario" id="txt_cuidad" placeholder="" value="" required>
+            <label for="txt_ciudad" class="form-label">Cuidad</label>
+            <input formControlName="cuidad" type="text" class="form-control formulario" id="txt_ciudad" placeholder="" value="" required>
             <div class="invalid-feedback"> Valid first name is required. </div>
           </div>
           <div class="col-sm-4">
             <label for="txt_direccion" class="form-label">Direccion</label>
-            <input type="text" class="form-control formulario" id="txt_direccion" placeholder="" value="" required>
+            <input  formControlName="direccion" type="text" class="form-control formulario" id="txt_direccion" placeholder="" value="" required>
             <div class="invalid-feedback"> Valid last name is required. </div>
           </div>
 
           <div class="col-sm-4">
             <label for="txt_telefono" class="form-label">Telefono</label>
-            <input type="phone" class="form-control formulario" id="txt_telefono" placeholder="" required>
+            <input formControlName="telefono" type="phone" class="form-control formulario" id="txt_telefono" placeholder="" required>
             <div class="invalid-feedback"> Please enter your shipping address. </div>
           </div>
 
+        </div>
+        <div class="general-container">
+          <div class="container-lg">
+            <div class="d-grid gap-2 d-md-block buttons-container">
+              <button id='btnRegistrar'  class="btn btn-outline-secondary buttons-functions" (click)="markAction('registrar')" type="submit">Registrar</button>
+              <button id='btnActualizar' class="btn btn-outline-secondary buttons-functions"  (click)="markAction('actualizar')" type="submit" disabled>Actualizar</button>
+            </div>
+            </div>
         </div>
         </form>
       </div>

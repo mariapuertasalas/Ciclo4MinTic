@@ -14,6 +14,7 @@ export class UsuarioService {
   token: String = '';
 
   constructor(private http:HttpClient, private seguridadService:SeguridadService) {
+    
       this.token = seguridadService.getToken();
   }
 

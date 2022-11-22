@@ -6,21 +6,25 @@
         <div class="row">
           <input type='hidden' id="hdnId" value="">
           <input type='hidden' id="hdnAction" value="hdnAction">
+
           <div class="col-sm-4">
             <label for="txt_cedula" class="form-label" >Identificación</label>
             <input formControlName="cedula" type="text" class="form-control formulario" id="txt_cedula" placeholder="" value="" required>
             <div class="invalid-feedback"> Valid first name is required.</div>
           </div>
+
           <div class="col-sm-4">
             <label for="txt_nombre" class="form-label">Nombres</label>
             <input formControlName="nombre" type="text" class="form-control formulario" id="txt_nombre" placeholder="" value="" required>
             <div class="invalid-feedback"> Valid first name is required. </div>
           </div>
+
           <div class="col-sm-4">
             <label for="txt_apellido" class="form-label">Apellidos</label>
             <input formControlName="apellido" type="text" class="form-control formulario" id="txt_apellido" placeholder="" value="" required>
             <div class="invalid-feedback"> Valid last name is required. </div>
           </div>
+
           <div class="col-sm-4">
             <label for="txt_correo" class="form-label">Correo</label>
             <div class="input-group has-validation">
@@ -29,22 +33,26 @@
               <div class="invalid-feedback"> Your username is required. </div>
             </div>
           </div>
+
           <div class="col-sm-4">
             <label for="txt_telefono" class="form-label">Telefono</label>
             <input formControlName="telefono" type="phone" class="form-control formulario" id="txt_telefono" placeholder="">
             <div class="invalid-feedback"> Please enter your shipping address. </div>
           </div>
+
           <div class="col-sm-4">
-            <label for="txt_rol" class="form-label">Rol</label>
-            <select formControlName="rol" class="form-select formulario" id="txt_rol" required>
+            <label for="lst_rol" class="form-label">Rol</label>
+            <select formControlName="rol" class="form-select formulario" id="lst_rol" required>
               <option value=""></option>
-              <option>Cliente</option>
-              <option>Asesor</option>
-              <option>Administrador</option>
+              <option value="Cliente">Cliente</option>
+              <option value="Asesor">Asesor</option>
+              <option value="Administrador">Administrador</option>
             </select>
             <div class="invalid-feedback"> Please select a valid country. </div>
           </div>
         </div>
+
+
         <div class="general-container">
           <div class="container-lg">
             <div class="d-grid gap-2 d-md-block buttons-container">
@@ -53,6 +61,7 @@
             </div>
             </div>
         </div>
+
         </form>
       </div>
     </div>

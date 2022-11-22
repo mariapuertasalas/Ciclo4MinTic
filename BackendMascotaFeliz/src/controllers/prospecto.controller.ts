@@ -20,6 +20,7 @@ import {
 import {Prospecto} from '../models';
 import {ProspectoRepository} from '../repositories';
 import { authenticate } from '@loopback/authentication';
+
 @authenticate('admin')
 export class ProspectoController {
   constructor(
@@ -27,6 +28,7 @@ export class ProspectoController {
     public prospectoRepository : ProspectoRepository,
   ) {}
 
+  @authenticate.skip()
   @post('/prospectos')
   @response(200, {
     description: 'Prospecto model instance',

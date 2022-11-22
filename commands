@@ -39,6 +39,8 @@ ng generate component modulos/seguridad/recuperar_clave
 
 ng generate component modulos/administracion/usuarios/crear-usuario
 ng generate component modulos/administracion/usuarios/listar-usuario
+ng generate component modulos/administracion/usuarios/registrar-usuario
+ng generate component modulos/administracion/usuarios/registro-usuario
 
 ng generate component modulos/administracion/mascotas/crear-mascota
 ng generate component modulos/administracion/mascotas/listar-mascota
@@ -71,6 +73,9 @@ ng generate component template/components/footer
 ng generate component template/components/header-page
 ng generate component template/components/services-page
 ng generate component template/components/quienes-somos
+ng generate component template/components/header-registrarse
+ng generate component template/components/servicios-precios
+ng generate component template/components/social-networks
 
 ng generate module template/pages --routing
 ng generate component template/pages/contacto-page
@@ -78,6 +83,7 @@ ng generate component template/pages/servicios-page
 ng generate component template/pages/quienes-somos-page
 ng generate component template/pages/home
 ng generate component template/pages/error
+ng generate component template/pages/registrar-page
 
 ===== Template Management =====
 
@@ -111,6 +117,7 @@ ng generate service services/contactos
 ng generate service services/mascotas
 ng generate service services/planes
 ng generate service services/sucursales
+ng generate service services/usuarios-mascotas
 
 ====== Install CSS Frameworks ======
 Bootstrap:

@@ -51,6 +51,7 @@ export class UsuarioController {
         let token = this.servicioAutenticacion.GenerarTokenJWT(u);
         return{
           datos:{
+            id: u.id,
             nombre: u.nombre,
             correo: u.correo,
             rol: u.rol
@@ -62,7 +63,7 @@ export class UsuarioController {
       }
   }
 
-
+  @authenticate.skip()
   @post('/usuarios')
   @response(200, {
     description: 'Usuario model instance',
@@ -81,8 +82,12 @@ export class UsuarioController {
     })
     usuario: Omit<Usuario, 'id'>,
   ): Promise<Usuario> {
-    //let clave = this.servicioAutenticacion.GenerarClave();
-    let clave = usuario.contrasena;
+    let clave = '';
+    if(usuario.contrasena == undefined || usuario.contrasena == ''){
+      clave = this.servicioAutenticacion.GenerarClave();
+    }else{
+      clave = usuario.contrasena;
+    }
     let claveCifrada = this.servicioAutenticacion.CifrarClave(clave);
     usuario.contrasena = claveCifrada
     let u = await this.usuarioRepository.create(usuario);
@@ -191,6 +196,7 @@ export class UsuarioController {
     await this.usuarioRepository.updateById(id, usuario);
   }
 
+  @authenticate.skip()
   @put('/usuarios/{id}')
   @response(204, {
     description: 'Usuario PUT success',

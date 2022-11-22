@@ -12,8 +12,6 @@ export class ListarUsuarioComponent implements OnInit {
 
   lista: UsuarioModel[] = [];
 
-  @ViewChild('txt_cedula', {static: true}) cedulaElement: ElementRef;
-
   constructor(private usuarioService: UsuarioService) {}
 
   ngOnInit(): void {
@@ -35,7 +33,7 @@ export class ListarUsuarioComponent implements OnInit {
           $('#txt_apellido').val(datos.apellido);
           $('#txt_correo').val(datos.correo);
           $('#txt_telefono').val(datos.telefono);
-          $('#txt_rol').val(datos.rol);
+          $('#lst_rol').val(datos.rol);
           $('#btnActualizar').prop('disabled', false);
       });
   }

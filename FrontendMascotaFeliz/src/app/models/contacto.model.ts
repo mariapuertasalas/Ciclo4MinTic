@@ -3,6 +3,7 @@ export class ContactoModel{
     nombre?:string;
     apellido?:string;
     correo?:string;
-    celular?:string;
-    comentario?:string;
+    telefono?:string;
+    asunto?:string;
+    comentarios?:string;
 }

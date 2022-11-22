@@ -11,6 +11,7 @@
 
 .table-values{
   text-align: center;
+  vertical-align: middle;
 }
 
 
@@ -20,5 +21,9 @@
 }
 
 .table-options-values{
+  vertical-align: middle;
   width: 160px !important;
+}
+.fotomascota{
+  width: 100px;
 }

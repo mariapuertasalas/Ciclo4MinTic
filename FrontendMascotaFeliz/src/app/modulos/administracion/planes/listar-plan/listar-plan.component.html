@@ -13,18 +13,18 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td class="table-values">1</td>
-          <td class="table-values">Cuidado Especial</td>
-          <td class="table-values">Guarderia y peluqueria</td>
-          <td class="table-values">$350.000</td>
+        <tr *ngFor="let item of lista; let indice=index">
+          <td class="table-values">{{indice+1}}</td>
+          <td class="table-values">{{item.nombre}}</td>
+          <td class="table-values">{{item.descripcion}}</td>
+          <td class="table-values">{{item.precio}}</td>
           <td class="table-options-values">
-            <button type="button" class="btn btn-outline-secondary  small-buttons" onclick="consultarUsuario('aasdkasdkasñl')">
-                  Consultar
+            <button type="button" class="btn btn-outline-secondary  small-buttons" (click)="getById(item.id)">
+              Consultar
+            </button>
+            <button type="button" class="btn btn-outline-secondary small-buttons" (click)="deleteById(item.id)">
+                    Eliminar
           </button>
-          <button type="button" class="btn btn-outline-secondary small-buttons" onclick="eliminarUsuario(1)">
-                  Eliminar
-         </button>
           </td>
         </tr>
       </tbody>
