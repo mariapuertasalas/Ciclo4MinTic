@@ -12,3 +12,14 @@
 .form-group{
   margin-bottom: 20px;
 }
+
+.buttons-functions{
+  height: 100px;
+  width: 100px;
+  margin: 0px 10px 0px 10px;
+}
+
+.buttons-container{
+  margin: 0px 0px -80px 0px;
+  text-align: center;
+}

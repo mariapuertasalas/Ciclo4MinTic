@@ -1,46 +1,46 @@
 <div class="general-container">
 <div class="container-lg">
-<form method="POST" action="/index.php" class="needs-validation" novalidate>
+<form method="POST" (ngSubmit)="store()" class="needs-validation" [formGroup]="fgValidator">
 
   <div class="form-row">
       <div class="col-md-6 mb-3 column">
           <label for="txt_nombre">Nombre:<span class="red">*</span></label>
-          <input type="text" class="form-control" id="txt_nombre" name="txt_nombre" required>
+          <input formControlName="nombre" type="text" class="form-control" id="txt_nombre" name="txt_nombre" required>
       </div>
   </div>
 
   <div class="form-row">
       <div class="col-md-6 mb-3 column">
           <label for="txt_apellido">Apellidos:<span class="red">*</span></label>
-          <input type="text" class="form-control" id="txt_apellido" name="txt_apellido" required>
+          <input formControlName="apellido" type="text" class="form-control" id="txt_apellido" name="txt_apellido" required>
       </div>
   </div>
 
   <div class="form-row">
       <div class="col-md-6 mb-3 column">
           <label for="txt_correo">Email:<span class="red">*</span></label>
-          <input type="email" class="form-control" id="txt_correo" name="txt_correo" required>
+          <input formControlName="correo" type="email" class="form-control" id="txt_correo" name="txt_correo" required>
       </div>
   </div>
 
   <div class="form-row">
       <div class="col-md-6 mb-3 column">
           <label for="txt_telefono">Teléfono:</label>
-          <input type="phone" class="form-control" id="txt_telefono" name="txt_telefono">
+          <input formControlName="telefono" type="phone" class="form-control" id="txt_telefono" name="txt_telefono">
       </div>
   </div>
 
   <div class="form-row">
       <div class="col-md-6 mb-3 column">
           <label for="txt_asunto">Asunto:</label>
-          <input type="text" class="form-control" id="txt_asunto" name="txt_asunto" required>
+          <input formControlName="asunto" type="text" class="form-control" id="txt_asunto" name="txt_asunto" required>
       </div>
   </div>
 
   <div class="form-row">
     <div class="col-md-6 mb-3 column">
         <label for="txt_asunto">Comentarios:</label>
-        <textarea class="form-control" id="txt_comentarios" name="txt_comentarios" required></textarea>
+        <textarea formControlName="comentarios" class="form-control" id="txt_comentarios" name="txt_comentarios" required></textarea>
     </div>
 </div>
 

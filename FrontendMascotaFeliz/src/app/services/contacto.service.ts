@@ -34,8 +34,8 @@ export class ContactoService {
   }
 
 
-  update(param: ContactoModel):Observable<ContactoModel>{
-    return this.http.put<ContactoModel>(`${this.url}/${this.entity}`, param,{
+  update(param: ContactoModel, id:String):Observable<ContactoModel>{
+    return this.http.put<ContactoModel>(`${this.url}/${this.entity}/${id}`, param,{
       headers: new HttpHeaders({
         'Authorization': `Bearer ${this.token}`
       })
